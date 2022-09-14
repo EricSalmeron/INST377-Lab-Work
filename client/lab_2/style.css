@@ -195,10 +195,10 @@ form {
   height: 150px;
 }
 
-h1, p {
+.h1, p {
   background-color: #DDE0E3;    /* Light gray */
 }
 
-em, strong {
+.em, strong {
   background-color: #B2D6FF;    /* Light blue */
 }
