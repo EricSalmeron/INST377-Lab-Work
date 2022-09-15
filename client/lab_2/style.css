@@ -87,7 +87,7 @@ form {
   Those rules won't apply to an h1 that's outside a block with the class of 'header'
 */
 
-.header h1 {
+.colorheader {
   display: block;
   /* this will push other blocks out of the way */
 
