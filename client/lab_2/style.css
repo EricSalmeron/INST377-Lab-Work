@@ -244,8 +244,8 @@ em, strong {
 
 .content {
   float: right;
-  width: 650px;                 /* Add this */
-  height: 500px;
+  width: 400px;                 /* Add this */
+  height: 400px;
   background-color: #F5CF8E;
 }
 
