@@ -250,9 +250,7 @@ em, strong {
 
 .page {
   width: 900px;
-  margin: 0 auto;
-  overflow: hidden;             /* Add this */
-  background-color: #EAEDF0;    /* Add this */
+  margin: 0 auto;   /* Add this */
 }
 
 
