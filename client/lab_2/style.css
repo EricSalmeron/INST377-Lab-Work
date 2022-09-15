@@ -245,7 +245,7 @@ em, strong {
 .content {
   float: right;
   width: 400px;                 /* Add this */
-  height: 400px;
+  height: 00px;
   background-color: #F5CF8E;
 }
 
