@@ -252,7 +252,10 @@ em, strong {
 .page {
   width: 900px;
   margin: 0 auto;
-  overflow: hidden;             /* Add this */
-  background-color: #EAEDF0;    /* Add this */
+}
+
+.container {
+  overflow: hidden;
+  background-color: #EAEDF0;
 }
 
