@@ -242,8 +242,7 @@ em, strong {
 }
 
 .content {
-  float: left;                  /* Add this */
-  width: 650px;
+  width: 650px;                 /* Add this */
   height: 500px;
   background-color: #F5CF8E;
 }
