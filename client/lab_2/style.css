@@ -203,7 +203,7 @@ p {
 h1{
   background-color: #DDE0E3;    /* Light gray */
   padding: 50px;
-  border: 1px solid #5D6063;
+  border-bottom: 1px solid #5D6063;
 }
 
 em, strong {
