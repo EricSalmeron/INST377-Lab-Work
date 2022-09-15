@@ -205,11 +205,6 @@ h1{
   padding: 50px;
 }
 
-ol{
-  background-color: rgba(0, 139, 139, 0.8);
-  padding: 10px 10px 10px 10px;
-}
-
 em, strong {
   background-color: #B2D6FF;    /* Light blue */
   display: inline;
