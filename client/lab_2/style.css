@@ -203,28 +203,24 @@ p {
   margin-bottom: 50px;
 }
 
-h1{
-  background-color: #DDE0E3;    /* Light gray */
-  padding: 50px;
-  border-bottom: 1px solid #5D6063;
-}
+
 
 em, strong {
   background-color: #B2D6FF;    /* Light blue */
   display: inline;
 }
 
-div {
+.button {
   color: #FFF;
-  background-color: #5995DA;
+  background-color: #5995DA;    /* Blue */
   font-weight: bold;
   padding: 20px;
   text-align: center;
-  border: 2px solid #5D6063;
+  border: 2px solid #5D6063;    /* Dark gray */
   border-radius: 5px;
 
   width: 200px;
-  box-sizing: border-box;
+  margin: 20px auto;
 }
 
 ol {
