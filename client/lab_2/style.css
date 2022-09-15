@@ -195,7 +195,7 @@ form {
   height: 150px;
 }
 
-.h1, p {
+h1, p {
   background-color: #DDE0E3;    /* Light gray */
   padding: 50px;
 }
