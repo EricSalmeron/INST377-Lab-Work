@@ -197,7 +197,7 @@ form {
 
 p {
   background-color: #DDE0E3;    /* Light gray */
-  padding: 20px 20 20 10px;  /* Top  Right  Bottom  Left */
+  padding: 20px 0 20px 10px;  /* Top  Right  Bottom  Left */
 }
 
 h1{
