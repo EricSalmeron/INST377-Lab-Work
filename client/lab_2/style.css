@@ -230,4 +230,5 @@ div {
 ol {
   background-color: rgba(137, 230, 222, 0.744);
   border: 2px solid #5D6063;
+  width: 400px;
 }
