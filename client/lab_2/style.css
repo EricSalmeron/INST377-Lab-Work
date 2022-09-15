@@ -226,3 +226,7 @@ div {
   width: 200px;
   box-sizing: border-box;
 }
+
+ol {
+  background-color: rgba(0, 139, 139, 0.8);
+}
