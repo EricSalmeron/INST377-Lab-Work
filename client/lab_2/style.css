@@ -235,12 +235,12 @@ em, strong {
 }
 
 .sidebar {
-  float: left;                  /* Add this */
-
   background-color: rgba(0, 139, 139, 0.8);
   flex: 0 1 auto;
   margin: 1rem;
   padding: 1.5rem;
+
+  
 }
 
 .content {
