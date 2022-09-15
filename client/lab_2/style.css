@@ -241,8 +241,10 @@ em, strong {
 }
 
 .content {
+  float: left;                  /* Add this */
+  width: 650px;
   height: 500px;
-  background-color: #F5CF8E;    /* Yellow */
+  background-color: #F5CF8E;
 }
 
 .footer {
