@@ -209,6 +209,6 @@ h1{
 
 em, strong {
   background-color: #B2D6FF;    /* Light blue */
-  display: block;
+  display: inline;
   padding: 50px;
 }
