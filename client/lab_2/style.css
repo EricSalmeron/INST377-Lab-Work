@@ -259,7 +259,8 @@ em, strong {
   background-color: #EAEDF0;
 }
 
-.footer {            /* Add this */
+.footer {
+  clear: both;            /* Add this */
   height: 200px;
   background-color: #D6E9FE;
 }
