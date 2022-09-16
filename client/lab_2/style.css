@@ -257,16 +257,8 @@ em, strong {
   margin: 0 auto;
 }
 
-.container {
-  overflow: hidden;
-  background-color: #EAEDF0;
-}
 
-.footer {
-  clear: both;            /* Add this */
-  height: 200px;
-  background-color: #D6E9FE;
-}
+
 
 .column {
   float: left;
