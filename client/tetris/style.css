@@ -1,6 +1,8 @@
 .grid {
     width: 200px;
     height: 400px;
+    display: wrap;
+    flex-wrap: wrap;
     background-color: yellow;
 
 
