@@ -306,5 +306,7 @@ form label {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      display: contents;
+      
     }
 }
