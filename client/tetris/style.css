@@ -1,7 +1,7 @@
 .grid {
     width: 200px;
     height: 400px;
-    display: wrap;
+    display: flex;
     flex-wrap: wrap;
     background-color: yellow;
 
