@@ -92,7 +92,7 @@ form {
   /* this will push other blocks out of the way */
 
   /* colors */
-  background-color: rgb(255, 224, 138);
+  background-color: hwb(44 54% 0%);
   color: #4a4a4a;
 
   /* shapes */
@@ -151,7 +151,7 @@ form {
 .footer {
   flex-shrink: 0;
   padding: 1rem;
-  background-color: rgba(158, 123, 155, 0.8);
+  background-color: rgba(0, 139, 139, 0.8);
   font-size: 1.2rem;
   font-weight: 600;
 }
