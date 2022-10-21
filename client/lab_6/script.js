@@ -100,7 +100,7 @@ async function mainEvent() {
     form.addEventListener('submit', (submitEvent) => {
       // This is needed to stop our page from changing to a new URL even though it heard a GET request
       submitEvent.preventDefault();
-      
+      console.log('form submission');
 
       // This constant will have the value of your 15-restaurant collection when it processes
       const restaurantList = processRestaurants(arrayFromJson.data);
