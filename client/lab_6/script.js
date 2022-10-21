@@ -18,12 +18,17 @@ function getRandomIntInclusive(min, max) {
 
 function injectHTML(list) {
   console.log('fired injectHTML');
-  const list = document.querySelector("#resturant_list")
-  EventTarget.innetHTML = '';
-  list.forEach(item => {
-    const str = `<li>${item.name} </li>`;
-    EventTarget.innetHTML += str;
-  })
+  const target = document.querySelector('#restaurant_list');
+  target.innerHTML= '';
+
+  const listEl = document.createElement('ol');
+  target.appendChild(listEl);
+  list.forEach((item) => {
+    const el = document.createElement('li');
+    el.innerText = item.name;
+    listEl.appendChild(el);
+  });
+
   /*
   ## JS and HTML Injection
     There are a bunch of methods to inject text or HTML into a document using JS
@@ -46,11 +51,8 @@ function processRestaurants(list) {
   const newArray = range.map((item) => {
     const index = getRandomIntInclusive(0, list.length);
     return list[index];
-  })
-
-  return newArray
-
-
+  });
+  return newArray;
   /*
     ## Process Data Separately From Injecting It
       This function should accept your 1,000 records
@@ -119,12 +121,10 @@ async function mainEvent() {
     form.addEventListener('submit', (submitEvent) => {
       // This is needed to stop our page from changing to a new URL even though it heard a GET request
       submitEvent.preventDefault();
-      console.log('form submission');
 
       // This constant will have the value of your 15-restaurant collection when it processes
       const restaurantList = processRestaurants(arrayFromJson.data);
       console.log(restaurantList);
-
       // And this function call will perform the "side effect" of injecting the HTML list for you
       injectHTML(restaurantList);
 
