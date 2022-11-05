@@ -33,13 +33,7 @@ function injectHTML(list) {
   */
 }
 
-function filterList(list, filterInputValue) {
-  return list.filter((item) => {
-    const lowerCaseName = item.name.toLowerCase();
-    const lowerCaseQuery = filterInputValue.toLowerCase();
-    return lowerCaseName.includes(lowerCaseQuery);
-  });
-}
+
 
 function processRestaurants(list) {
   console.log("fired restaurants list");
@@ -68,6 +62,14 @@ function processRestaurants(list) {
       - Return the new list of 15 restaurants so we can work on it separately in the HTML injector
     */
 }
+
+function filterList(list, filterInputValue) {
+    return list.filter((item) => {
+      const lowerCaseName = item.name.toLowerCase();
+      const lowerCaseQuery = filterInputValue.toLowerCase();
+      return lowerCaseName.includes(lowerCaseQuery);
+    });
+  }
 
 async function mainEvent() {
   /*
@@ -109,16 +111,21 @@ async function mainEvent() {
   );
 
   // This IF statement ensures we can't do anything if we don't have information yet
-  if (arrayFromJson.data?.length > 0) {
+  if (arrayFromJson.data?.length > 0) { return; }
+
+    let currentList =[];
     // the question mark in this means "if this is set at all"
     submit.style.display = "block"; // let's turn the submit button back on by setting it to display as a block when we have data available
 
     loadAnimation.classList.remove("lds-ellipsis");
     loadAnimation.classList.add("lds-ellipsis_hidden");
+    
 
-    form.addEventListener('input', (event)=>{
-        console.log(event.target.value);
-    })
+    form.addEventListener('input', (event) => {
+        console.log('input', event.target.value);
+        const newFilterList = filterList(arrayFromJson.data, event.target.value);
+        injectHTML(newFilterList);
+    });
     
     // And here's an eventListener! It's listening for a "submit" button specifically being clicked
     // this is a synchronous event event, because we already did our async request above, a
@@ -127,10 +134,10 @@ async function mainEvent() {
       submitEvent.preventDefault();
 
       // This constant will have the value of your 15-restaurant collection when it processes
-      const restaurantList = processRestaurants(arrayFromJson.data);
-      console.log(restaurantList);
+      currentList = processRestaurants(arrayFromJson.data);
+      console.log(currentList);
       // And this function call will perform the "side effect" of injecting the HTML list for you
-      injectHTML(restaurantList);
+      injectHTML(currentList);
 
       // By separating the functions, we open the possibility of regenerating the list
       // without having to retrieve fresh data every time
