@@ -115,6 +115,11 @@ async function mainEvent() {
 
     loadAnimation.classList.remove("lds-ellipsis");
     loadAnimation.classList.add("lds-ellipsis_hidden");
+
+    form.addEventListener('input', (event)=>{
+        console.log(event.target.value);
+    })
+    
     // And here's an eventListener! It's listening for a "submit" button specifically being clicked
     // this is a synchronous event event, because we already did our async request above, a
     form.addEventListener("submit", (submitEvent) => {
