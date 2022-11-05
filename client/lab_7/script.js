@@ -25,7 +25,7 @@ function injectHTML(list) {
       the usual ones are element.innerText and element.innerHTML
       Here's an article on the differences if you want to know more:
       https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent#differences_from_innertext
-  
+
     ## What to do in this function
       - Accept a list of restaurant objects
       - using a .forEach method, inject a list element into your index.html for every element in the list
@@ -47,12 +47,12 @@ function processRestaurants(list) {
         then select 15 random records
         and return an object containing only the restaurant's name, category, and geocoded location
         So we can inject them using the HTML injection function
-  
+
         You can find the column names by carefully looking at your single returned record
         https://data.princegeorgescountymd.gov/Health/Food-Inspection/umjn-t2iz
-  
+
       ## What to do in this function:
-  
+
       - Create an array of 15 empty elements (there are a lot of fun ways to do this, and also very basic ways)
       - using a .map function on that range,
       - Make a list of 15 random restaurants from your list of 100 from your data request
@@ -101,29 +101,35 @@ async function mainEvent() {
   );
 
   // This IF statement ensures we can't do anything if we don't have information yet
-  if (arrayFromJson.data?.length > 0) {
-    // the question mark in this means "if this is set at all"
-    submit.style.display = "block"; // let's turn the submit button back on by setting it to display as a block when we have data available
+  if (!arrayFromJson.data?.length !== 0) { return; }
 
-    loadAnimation.classList.remove("lds-ellipsis");
-    loadAnimation.classList.add("lds-ellipsis_hidden");
-    // And here's an eventListener! It's listening for a "submit" button specifically being clicked
-    // this is a synchronous event event, because we already did our async request above, and waited for it to resolve
-    form.addEventListener("submit", (submitEvent) => {
-      // This is needed to stop our page from changing to a new URL even though it heard a GET request
-      submitEvent.preventDefault();
+  let currentList = [];
+  // the question mark in this means "if this is set at all"
+  submit.style.display = "block"; // let's turn the submit button back on by setting it to display as a block when we have data available
 
-      // This constant will have the value of your 15-restaurant collection when it processes
-      const restaurantList = processRestaurants(arrayFromJson.data);
-      console.log(restaurantList);
-      // And this function call will perform the "side effect" of injecting the HTML list for you
-      injectHTML(restaurantList);
+  loadAnimation.classList.remove("lds-ellipsis");
+  loadAnimation.classList.add("lds-ellipsis_hidden");
 
-      // By separating the functions, we open the possibility of regenerating the list
-      // without having to retrieve fresh data every time
-      // We also have access to some form values, so we could filter the list based on name
-    });
-  }
+  form.addEventListener("input", (event) => {
+    console.log(event.target.value);
+    injectHTML(currentList);
+  });
+  // And here's an eventListener! It's listening for a "submit" button specifically being clicked
+  // this is a synchronous event event, because we already did our async request above, and waited for it to resolve
+  form.addEventListener("submit", (submitEvent) => {
+    // This is needed to stop our page from changing to a new URL even though it heard a GET request
+    submitEvent.preventDefault();
+
+    // This constant will have the value of your 15-restaurant collection when it processes
+    currentList = processRestaurants(arrayFromJson.data);
+    console.log(currentList);
+    // And this function call will perform the "side effect" of injecting the HTML list for you
+    injectHTML(currentList);
+
+    // By separating the functions, we open the possibility of regenerating the list
+    // without having to retrieve fresh data every time
+    // We also have access to some form values, so we could filter the list based on name
+  });
 }
 
 /*
