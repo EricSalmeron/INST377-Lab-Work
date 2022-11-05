@@ -73,6 +73,14 @@ function processRestaurants(list) {
     */
 }
 
+function filterList(array, filterInputValue) {
+  return array.filter((item) => {
+    const lowerCaseName = item.name.toLowerCase();
+    const lowerCaseQuery = filterInputValue.toLowerCase();
+    return lowerCaseName.includes(lowerCaseQuery);
+  });
+}
+
 async function mainEvent() {
   /*
       ## Main Event
@@ -114,16 +122,18 @@ async function mainEvent() {
   if (!arrayFromJson.data?.length) { return; }
 
   let currentList = [];
+
+  form.addEventListener('input', (event) => {
+    console.log(event.target.value);
+    const newFilterList = filterList(arrayFromJson.data, event.target.value);
+    injectHTML(newFilterList);
+  })
   // the question mark in this means "if this is set at all"
   submit.style.display = 'block'; // let's turn the submit button back on by setting it to display as a block when we have data available
 
   loadAnimation.classList.remove('lds-ellipsis');
   loadAnimation.classList.add('lds-ellipsis_hidden');
 
-  form.addEventListener('input', (event) => {
-    console.log('input', event.target.value);
-    injectHTML(currentList);
-  })
   // And here's an eventListener! It's listening for a "submit" button specifically being clicked
   // this is a synchronous event event, because we already did our async request above, and waited for it to resolve
   form.addEventListener('submit', (submitEvent) => {
