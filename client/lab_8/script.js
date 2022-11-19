@@ -148,7 +148,7 @@ async function mainEvent() {
     console.log(event.target.value);
     const newFilterList = filterList(currentList, event.target.value);
     injectHTML(newFilterList);
-    markerPlace(currentList, pageMap);
+    markerPlace(newFilterList, pageMap);
   });
   // the question mark in this means "if this is set at all"
   submit.style.display = 'block'; // let's turn the submit button back on by setting it to display as a block when we have data available
