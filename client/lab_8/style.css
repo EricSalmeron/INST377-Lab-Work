@@ -333,6 +333,8 @@
   Form Styles
   */
   
+  #map { height: 180px; }
+  
   form input {
       /* This is a hack to make sure our boxes line up with one another nicely */
       width: 100%;
