@@ -89,6 +89,15 @@ function initMap() {
   return map;
 }
 
+function markerPlace(array, map) {
+  console.log('markerPlace', array);
+  //const marker = L.marker([51.5, -0.09]).addTo(map);
+  array.forEach((item) => {
+    const {coordinates} = item.geocoded_column_1;
+    L.marker([coordinates[0], coordinates[1]]).addTo(map);
+  });
+}
+
 async function mainEvent() {
   /*
       ## Main Event
@@ -135,6 +144,7 @@ async function mainEvent() {
     console.log(event.target.value);
     const newFilterList = filterList(currentList, event.target.value);
     injectHTML(newFilterList);
+    markerPlace(currentList, pageMap);
   });
   // the question mark in this means "if this is set at all"
   submit.style.display = 'block'; // let's turn the submit button back on by setting it to display as a block when we have data available
@@ -153,6 +163,7 @@ async function mainEvent() {
     console.log(currentList);
     // And this function call will perform the "side effect" of injecting the HTML list for you
     injectHTML(currentList);
+    markerPlace(currentList, pageMap);
 
     // By separating the functions, we open the possibility of regenerating the list
     // without having to retrieve fresh data every time
