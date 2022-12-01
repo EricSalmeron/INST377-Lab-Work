@@ -7,7 +7,7 @@
 function handlePostRequest(req, res) {
   try {
     console.log('Touched post endpoint', req.body);
-    console.log(req.body?.resto);
+    console.log(req.body?.res to);
     res.json({ message: 'post FoodServices endpoint' });
   } catch (err) {
     console.log(error);
